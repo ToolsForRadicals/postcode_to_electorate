@@ -5,5 +5,5 @@ It relies on the OpenAustralia API (https://www.openaustralia.org.au/api/docs/ge
 
 # To use the script type the following commands in your terminal
 * git clone https://github.com/ToolsForRadicals/postcode_to_electorate.git
-* pip install requirements.txt
+* pip install -r requirements.txt
 * python postcode_to_electorate.py
