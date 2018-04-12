@@ -1,11 +1,14 @@
 import pandas as pd
 import requests
+import tqdm
+
 frame = pd.read_csv('https://raw.githubusercontent.com/ToolsForRadicals/postcode_to_electorate/master/australian_postcodes.csv')
 apikey = "YOUR OPENAUSTRALIA API KEY GOES HERE"
 from multiprocessing.dummy import Pool
 pool = Pool(4)
 
 def getelectorates(postcode):
+    print(" Getting Postcode " + str(postcode))
     pair = dict()
     pair['postcode'] = postcode
     pair['electorates'] = ""
@@ -20,11 +23,12 @@ def getelectorates(postcode):
             pair['electorates'] = [result['name'] for result in json_result]
     return pair
 
-    postcodes = list(set(frame['postcode']))
+postcodes = list(set(frame['postcode']))
+postcodes = [code for code in postcodes if 2000 <= code <= 8000] #Exclude PO Boxes etc
 
-shortcodes = [code for code in postcodes if 2000 <= code <= 8000]
-electorates = pool.map(getelectorates,shortcodes)
+electorates = pool.map(getelectorates,postcodes)
 pool.join()
 pool.close()
+
 postframe = pd.DataFrame(electorates)
 postframe.to_csv('postcode_to_electorate.csv')
