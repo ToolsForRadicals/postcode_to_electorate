@@ -11,3 +11,5 @@ It relies on the OpenAustralia API (https://www.openaustralia.org.au/api/docs/ge
 * Replace "YOUR OPENAUSTRALIA API KEY GOES HERE" with your OpenAustralia API key from (https://www.openaustralia.org.au/api/key)
 * Save.
 * type python postcode_to_electorate.py
+
+You should end up with a file called postcode_to_electorate.csv (Could take 5-10 minutes depending on your Internet connection speed)

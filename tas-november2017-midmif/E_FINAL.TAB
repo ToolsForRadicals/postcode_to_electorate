@@ -1,0 +1,22 @@
+!table
+!version 300
+!charset WindowsLatin1
+!edit_version 450
+
+Definition Table
+  Type NATIVE Charset "WindowsLatin1"
+  Fields 9
+    E_div_number Integer ;
+    Elect_div Char (30) Index 1 ;
+    Numccds Integer ;
+    Actual Integer ;
+    Projected Integer ;
+    Total_Population Integer ;
+    Australians_Over_18 Integer ;
+    Area_SqKm Float ;
+    Sortname Char (30) ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "47a6dd99-2d2f-4572-8d89-4e27828fec8c"
+end_metadata
